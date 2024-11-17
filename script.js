@@ -6,10 +6,12 @@ const score0El = document.querySelector('#score--0');
 const score1El = document.querySelector('#score--1') ;
 score0El.textContent = 0;
 score1El.textContent = 0;
-const score= [0,0];
-let curr_score=0;
-let activePlayer = 0;
-let playingState = true;
+
+let score,curr_score,activePlayer,playingState;
+// const score= [0,0];
+// let curr_score=0;
+// let activePlayer = 0;
+// let playingState = true;
 
 
 const curr0El =document.getElementById('current--0');
@@ -69,5 +71,27 @@ function holdScore(){
 btnRoll.addEventListener('click',rollDice); 
 btnHold.addEventListener('click',holdScore);
 
- 
+ const btnNewgame = document.querySelector('.btn--new');
 
+
+ function newGame(){
+
+    activePlayer = 0;
+    score0El.textContent = 0;
+    score1El.textContent = 0;
+    curr0El.textContent = 0;
+    curr1El.textContent = 0;
+    player0El.classList.remove('player--winner');
+    player1El.classList.remove('player--winner');
+    player1El.classList.remove('player--active');
+    player0El.classList.add('player--active');
+    curr_score = 0;
+    score = [0,0];
+    playingState =true;
+
+    
+
+ }
+
+ newGame();
+ btnNewgame.addEventListener('click', newGame);
